@@ -205,5 +205,6 @@ export const contact = {
   github2: "github.com/syaafiudinm",
   linkedin: "linkedin.com/in/rifqi-azzahran",
   linkedin2: "linkedin.com/in/andi-syafiudin-musafir",
-  phone: "+62 821 9616 6720 (contact person)",
+  whatsapp: "6282196166720",
+  whatsappLabel: "+62 821 9616 6720",
 };
