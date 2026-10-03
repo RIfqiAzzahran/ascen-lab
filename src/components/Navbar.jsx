@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 import { colors, mono } from "../theme";
 
 const LINKS = [
@@ -7,6 +8,7 @@ const LINKS = [
   { id: "services", label: "Layanan" },
   { id: "work", label: "Karya" },
   { id: "process", label: "Proses" },
+  { id: "pricing", label: "Harga" },
 ];
 
 export default function Navbar() {
@@ -31,7 +33,7 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        background: scrolled ? "rgba(8, 9, 10, 0.78)" : "transparent",
+        background: scrolled ? colors.navBg : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: `1px solid ${scrolled ? colors.border : "transparent"}`,
@@ -57,14 +59,14 @@ export default function Navbar() {
         <Logo />
       </button>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
         <ul
           className="nav-links"
           style={{
             display: "flex",
             gap: "1.75rem",
             listStyle: "none",
-            margin: 0,
+            margin: "0 0.75rem 0 0",
             padding: 0,
           }}
         >
@@ -72,26 +74,23 @@ export default function Navbar() {
             <li key={link.id}>
               <button
                 onClick={() => scrollTo(link.id)}
+                className="nav-link"
                 style={{
                   background: "none",
                   border: "none",
                   cursor: "pointer",
                   fontSize: "13px",
-                  color: colors.textMuted,
                   padding: 0,
                   fontFamily: "inherit",
-                  transition: "color 0.2s",
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.color = colors.text)}
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.color = colors.textMuted)
-                }
               >
                 {link.label}
               </button>
             </li>
           ))}
         </ul>
+
+        <ThemeToggle />
 
         <button
           onClick={() => scrollTo("contact")}

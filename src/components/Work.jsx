@@ -1,5 +1,5 @@
 import Thumbnail from "./Thumbnail";
-import { work, team } from "../data/siteData";
+import { work } from "../data/siteData";
 import {
   colors,
   mono,
@@ -9,12 +9,9 @@ import {
   sectionIntro,
 } from "../theme";
 
-const nameOf = (initials) =>
-  team.find((member) => member.initials === initials)?.name ?? initials;
-
 export default function Work() {
   return (
-    <section id="work" style={section}>
+    <section id="work" style={section} data-reveal-stagger>
       <p style={sectionLabel}>03 / Karya</p>
       <h2 style={sectionTitle}>Proyek terpilih</h2>
       <p style={sectionIntro}>
@@ -23,6 +20,7 @@ export default function Work() {
       </p>
 
       <div
+        data-reveal-stagger
         style={{
           border: `1px solid ${colors.border}`,
           borderRadius: "14px",
@@ -33,17 +31,12 @@ export default function Work() {
         {work.map((project, i) => (
           <article
             key={project.name}
+            className="work-item"
+            data-reveal
             style={{
               padding: "1.75rem",
               borderTop: i > 0 ? `1px solid ${colors.border}` : "none",
-              transition: "background 0.2s",
             }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.background = colors.surfaceHover)
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.background = "transparent")
-            }
           >
             <div className="work-row">
               <Thumbnail src={project.image} name={project.name} />
@@ -68,10 +61,10 @@ export default function Work() {
                     }}
                   >
                     <h3
+                      className="work-title"
                       style={{
                         fontSize: "17px",
                         fontWeight: 500,
-                        color: colors.text,
                         letterSpacing: "-0.01em",
                       }}
                     >
@@ -99,43 +92,6 @@ export default function Work() {
                     {project.year}
                   </span>
                 </div>
-
-                {project.by?.length > 0 && (
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    {project.by.map((initials) => (
-                      <span
-                        key={initials}
-                        title={nameOf(initials)}
-                        style={{
-                          fontFamily: mono,
-                          fontSize: "10px",
-                          letterSpacing: "0.06em",
-                          color: colors.textDim,
-                          width: "24px",
-                          height: "24px",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          background: colors.bg,
-                          border: `1px solid ${colors.border}`,
-                          borderRadius: "50%",
-                        }}
-                      >
-                        {initials}
-                      </span>
-                    ))}
-                    <span style={{ fontSize: "12px", color: colors.textDim }}>
-                      {project.by.map(nameOf).join(" & ")}
-                    </span>
-                  </div>
-                )}
 
                 <p
                   style={{
@@ -191,18 +147,8 @@ export default function Work() {
                           href={link.href}
                           target="_blank"
                           rel="noreferrer"
-                          style={{
-                            fontSize: "12px",
-                            color: colors.textMuted,
-                            textDecoration: "none",
-                            transition: "color 0.2s",
-                          }}
-                          onMouseOver={(e) =>
-                            (e.currentTarget.style.color = colors.text)
-                          }
-                          onMouseOut={(e) =>
-                            (e.currentTarget.style.color = colors.textMuted)
-                          }
+                          className="work-link"
+                          style={{ fontSize: "12px", textDecoration: "none" }}
                         >
                           {link.label} ↗
                         </a>

@@ -10,7 +10,7 @@ import {
 
 export default function Process() {
   return (
-    <section id="process" style={section}>
+    <section id="process" style={section} data-reveal-stagger>
       <p style={sectionLabel}>04 / Proses</p>
       <h2 style={sectionTitle}>Cara kami bekerja</h2>
       <p style={sectionIntro}>
@@ -19,9 +19,8 @@ export default function Process() {
       </p>
 
       <div
+        className="process-grid"
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
           gap: "1px",
           border: `1px solid ${colors.border}`,
           borderRadius: "14px",
@@ -32,28 +31,25 @@ export default function Process() {
         {process.map((item) => (
           <div
             key={item.step}
-            style={{
-              padding: "1.6rem",
-              background: colors.surface,
-            }}
+            className="process-card"
+            style={{ padding: "1.6rem" }}
           >
             <span
+              className="process-step"
               style={{
                 fontFamily: mono,
                 fontSize: "22px",
                 fontWeight: 400,
-                color: colors.border,
-                display: "block",
                 marginBottom: "14px",
               }}
             >
               {item.step}
             </span>
             <h3
+              className="process-title"
               style={{
                 fontSize: "14px",
                 fontWeight: 500,
-                color: colors.text,
                 marginBottom: "8px",
               }}
             >

@@ -1,15 +1,18 @@
+// Nilai sebenarnya ada di src/index.css (:root & [data-theme="light"]),
+// jadi semua inline style otomatis ikut berganti saat tema diganti.
 export const colors = {
-  bg: "#08090a",
-  surface: "#0e1013",
-  surfaceHover: "#131619",
-  border: "#1c1f24",
-  borderHover: "#2e333b",
-  text: "#f2f3f5",
-  textMuted: "#9aa1a9",
-  textDim: "#6b7280",
-  accent: "#7c9eff",
-  accentSoft: "rgba(124, 158, 255, 0.12)",
-  green: "#22c55e",
+  bg: "var(--bg)",
+  surface: "var(--surface)",
+  surfaceHover: "var(--surface-hover)",
+  border: "var(--border)",
+  borderHover: "var(--border-hover)",
+  text: "var(--text)",
+  textMuted: "var(--text-muted)",
+  textDim: "var(--text-dim)",
+  accent: "var(--accent)",
+  accentSoft: "var(--accent-soft)",
+  green: "var(--green)",
+  navBg: "var(--nav-bg)",
 };
 
 export const mono =

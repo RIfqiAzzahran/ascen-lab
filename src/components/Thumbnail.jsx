@@ -22,13 +22,13 @@ export default function Thumbnail({ src, name }) {
     aspectRatio: "16 / 10",
     borderRadius: "10px",
     overflow: "hidden",
-    border: `1px solid ${colors.border}`,
     background: colors.bg,
   };
 
   if (showPlaceholder) {
     return (
       <div
+        className="thumb"
         style={{
           ...frame,
           display: "flex",
@@ -67,7 +67,7 @@ export default function Thumbnail({ src, name }) {
   }
 
   return (
-    <div style={frame}>
+    <div className="thumb" style={frame}>
       <img
         src={src}
         alt={`Pratinjau proyek ${name}`}

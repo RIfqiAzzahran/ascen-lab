@@ -10,7 +10,7 @@ import {
 
 export default function Services() {
   return (
-    <section id="services" style={section}>
+    <section id="services" style={section} data-reveal-stagger>
       <p style={sectionLabel}>02 / Layanan</p>
       <h2 style={sectionTitle}>Yang kami kerjakan</h2>
       <p style={sectionIntro}>
@@ -19,6 +19,7 @@ export default function Services() {
       </p>
 
       <div
+        data-reveal-stagger
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -28,21 +29,8 @@ export default function Services() {
         {services.map((service) => (
           <div
             key={service.id}
-            style={{
-              background: colors.surface,
-              border: `1px solid ${colors.border}`,
-              borderRadius: "14px",
-              padding: "1.6rem",
-              transition: "border-color 0.2s, background 0.2s",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.borderColor = colors.borderHover;
-              e.currentTarget.style.background = colors.surfaceHover;
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.borderColor = colors.border;
-              e.currentTarget.style.background = colors.surface;
-            }}
+            className="service-card"
+            style={{ borderRadius: "14px", padding: "1.6rem" }}
           >
             <span
               style={{
@@ -56,10 +44,10 @@ export default function Services() {
             </span>
 
             <h3
+              className="service-title"
               style={{
                 fontSize: "16px",
                 fontWeight: 500,
-                color: colors.text,
                 margin: "12px 0 8px",
                 letterSpacing: "-0.01em",
               }}
@@ -82,14 +70,13 @@ export default function Services() {
               {service.tags.map((tag) => (
                 <span
                   key={tag}
+                  className="service-tag"
                   style={{
                     fontFamily: mono,
                     fontSize: "11px",
                     padding: "4px 8px",
                     background: colors.bg,
-                    border: `1px solid ${colors.border}`,
                     borderRadius: "5px",
-                    color: colors.textMuted,
                   }}
                 >
                   {tag}

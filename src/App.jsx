@@ -4,9 +4,11 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Work from "./components/Work";
 import Process from "./components/Process";
+import Pricing from "./components/Pricing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { colors } from "./theme";
+import useReveal from "./hooks/useReveal";
 
 const divider = (
   <hr
@@ -20,6 +22,8 @@ const divider = (
 );
 
 export default function App() {
+  useReveal();
+
   return (
     <div style={{ background: colors.bg, minHeight: "100vh" }}>
       <Navbar />
@@ -31,6 +35,8 @@ export default function App() {
       <Work />
       {divider}
       <Process />
+      {divider}
+      <Pricing />
       {divider}
       <Contact />
       <Footer />

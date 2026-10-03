@@ -6,6 +6,7 @@ export default function Footer() {
   return (
     <footer style={{ borderTop: `1px solid ${colors.border}` }}>
       <div
+        data-reveal-stagger
         style={{
           maxWidth: "1000px",
           margin: "0 auto",
@@ -35,14 +36,8 @@ export default function Footer() {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              style={{
-                fontSize: "12px",
-                color: colors.textMuted,
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-              onMouseOver={(e) => (e.currentTarget.style.color = colors.text)}
-              onMouseOut={(e) => (e.currentTarget.style.color = colors.textMuted)}
+              className="footer-link"
+              style={{ fontSize: "12px", textDecoration: "none" }}
             >
               {link.label}
             </a>
@@ -57,7 +52,7 @@ export default function Footer() {
             letterSpacing: "0.05em",
           }}
         >
-          © {brand.founded}–{new Date().getFullYear()} {brand.name}
+          ©{new Date().getFullYear()} {brand.name}
         </p>
       </div>
     </footer>

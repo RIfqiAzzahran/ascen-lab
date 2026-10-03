@@ -82,40 +82,6 @@ export default function Hero() {
           padding: "160px 2rem 120px",
         }}
       >
-        {/* Status pill */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            padding: "6px 12px",
-            background: colors.surface,
-            border: `1px solid ${colors.border}`,
-            borderRadius: "100px",
-            marginBottom: "36px",
-          }}
-        >
-          <span
-            style={{
-              width: "6px",
-              height: "6px",
-              borderRadius: "50%",
-              background: colors.green,
-              boxShadow: `0 0 0 3px rgba(34, 197, 94, 0.15)`,
-              flexShrink: 0,
-            }}
-          />
-          <span
-            style={{
-              fontSize: "11px",
-              color: colors.textMuted,
-              letterSpacing: "0.03em",
-            }}
-          >
-            {brand.status}
-          </span>
-        </div>
-
         {/* Typewriter heading */}
         <h1
           style={{

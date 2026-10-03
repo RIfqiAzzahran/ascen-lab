@@ -3,11 +3,12 @@ import { contact, brand } from "../data/siteData";
 import { colors, mono, section, sectionLabel, sectionTitle } from "../theme";
 
 const LINKS = [
-  { key: "email", href: `mailto:${contact.email}`, label: contact.email, icon: "✉" },
-  { key: "github", href: `https://${contact.github}`, label: contact.github, icon: "↗", external: true },
-  { key: "github2", href: `https://${contact.github2}`, label: contact.github2, icon: "↗", external: true },
-  { key: "linkedin", href: `https://${contact.linkedin}`, label: contact.linkedin, icon: "in", external: true },
-  { key: "linkedin2", href: `https://${contact.linkedin2}`, label: contact.linkedin2, icon: "in", external: true },
+  {
+    key: "email",
+    href: `mailto:${contact.email}`,
+    label: contact.email,
+    icon: "✉",
+  },
   {
     key: "whatsapp",
     href: `https://wa.me/${contact.whatsapp}`,
@@ -33,7 +34,7 @@ export default function Contact() {
     ].join("\n");
 
     window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
-      subject
+      subject,
     )}&body=${encodeURIComponent(body)}`;
 
     setSent(true);
@@ -55,7 +56,7 @@ export default function Contact() {
     window.open(
       `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(text)}`,
       "_blank",
-      "noopener,noreferrer"
+      "noopener,noreferrer",
     );
   };
 
@@ -73,11 +74,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={section}>
-      <p style={sectionLabel}>05 / Kontak</p>
+    <section id="contact" style={section} data-reveal-stagger>
+      <p style={sectionLabel}>06 / Kontak</p>
       <h2 style={sectionTitle}>Punya sesuatu untuk dibangun?</h2>
 
       <div
+        data-reveal-stagger
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
@@ -109,22 +111,18 @@ export default function Contact() {
                 href={link.href}
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
+                className="contact-link"
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: "12px",
                   fontFamily: mono,
                   fontSize: "13px",
-                  color: colors.textMuted,
                   textDecoration: "none",
-                  transition: "color 0.2s",
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.color = colors.text)}
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.color = colors.textMuted)
-                }
               >
                 <span
+                  className="contact-icon"
                   style={{
                     fontSize: "11px",
                     width: "24px",
@@ -132,7 +130,6 @@ export default function Contact() {
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: `1px solid ${colors.border}`,
                     borderRadius: "6px",
                     color: colors.accent,
                     flexShrink: 0,
@@ -140,7 +137,7 @@ export default function Contact() {
                 >
                   {link.icon}
                 </span>
-                {link.label}
+                <span className="contact-label">{link.label}</span>
               </a>
             ))}
           </div>
@@ -229,8 +226,12 @@ export default function Contact() {
                 fontFamily: "inherit",
                 transition: "border-color 0.2s, opacity 0.15s",
               }}
-              onMouseOver={(e) => (e.currentTarget.style.borderColor = colors.accent)}
-              onMouseOut={(e) => (e.currentTarget.style.borderColor = colors.border)}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.borderColor = colors.accent)
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.borderColor = colors.border)
+              }
             >
               Kirim lewat WhatsApp
             </button>
