@@ -75,7 +75,7 @@ export default function Contact() {
 
   return (
     <section id="contact" style={section} data-reveal-stagger>
-      <p style={sectionLabel}>07 / Kontak</p>
+      <p style={sectionLabel}>08 / Kontak</p>
       <h2 style={sectionTitle}>Punya sesuatu untuk dibangun?</h2>
 
       <div

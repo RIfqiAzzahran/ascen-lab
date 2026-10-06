@@ -263,6 +263,50 @@ export const pricing = {
   ],
 };
 
+/*
+ * ── FAQ ──────────────────────────────────────────────────────────────────────
+ * Urutan di array = urutan tampil. Jawaban yang menyebut kebijakan (revisi,
+ * pembayaran, garansi) perlu disesuaikan dengan cara kerja tim yang sebenarnya.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+export const faq = [
+  {
+    question: "Berapa lama proses pembuatan website?",
+    answer:
+      "Landing page biasanya selesai dalam 1–2 minggu. Web app custom rata-rata 4–8 minggu, tergantung jumlah fitur dan kesiapan materi dari Anda. Jadwal pastinya kami sepakati bersama di tahap discovery.",
+  },
+  {
+    question: "Apa saja yang sudah termasuk dalam paket Landing Page Rp2 jt?",
+    answer:
+      "Desain custom, tampilan responsif di semua perangkat, tombol WhatsApp dan form kontak, SEO dasar, serta bantuan setup domain dan hosting. Biaya sewa domain dan hosting dibayar terpisah ke penyedianya.",
+  },
+  {
+    question: "Bagaimana cara menentukan harga Custom Web App?",
+    answer:
+      "Harga dihitung dari ruang lingkup: jumlah halaman, fitur, integrasi, dan kompleksitas data. Setelah konsultasi gratis, kami kirimkan rincian fitur dan estimasi biaya tertulis sebelum pengerjaan dimulai — tanpa biaya tersembunyi.",
+  },
+  {
+    question: "Bagaimana sistem pembayarannya?",
+    answer:
+      "Pembayaran dibagi bertahap: uang muka di awal proyek, lalu pelunasan setelah website selesai dan Anda setujui sebelum rilis. Untuk proyek besar, termin bisa disesuaikan dengan milestone pengerjaan.",
+  },
+  {
+    question: "Apakah saya bisa minta revisi?",
+    answer:
+      "Bisa. Kami menunjukkan desain dan demo secara berkala, jadi masukan Anda masuk sejak awal, bukan di akhir. Revisi selama masih dalam ruang lingkup yang disepakati sudah termasuk dalam harga.",
+  },
+  {
+    question: "Saya belum punya desain atau konten, apakah tetap bisa?",
+    answer:
+      "Tentu. Kami bantu menyusun struktur halaman, wireframe, dan desain dari nol. Untuk konten seperti teks dan foto, kami beri panduan apa saja yang perlu disiapkan.",
+  },
+  {
+    question: "Apakah ada dukungan setelah website rilis?",
+    answer:
+      "Ada. Kami bantu proses deployment dan memantau website setelah rilis. Untuk perbaikan, pembaruan fitur, atau pemeliharaan rutin, kami sediakan dukungan lanjutan yang bisa dibicarakan sesuai kebutuhan.",
+  },
+];
+
 export const contact = {
   email: "ascen.labs@gmail.com",
   whatsapp: "6282196166720",

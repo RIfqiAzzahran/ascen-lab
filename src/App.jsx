@@ -6,6 +6,7 @@ import Work from "./components/Work";
 import Testimonials from "./components/Testimonials";
 import Process from "./components/Process";
 import Pricing from "./components/Pricing";
+import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { colors } from "./theme";
@@ -40,6 +41,8 @@ export default function App() {
       <Process />
       {divider}
       <Pricing />
+      {divider}
+      <Faq />
       {divider}
       <Contact />
       <Footer />

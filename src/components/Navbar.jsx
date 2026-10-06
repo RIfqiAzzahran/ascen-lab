@@ -9,6 +9,7 @@ const LINKS = [
   { id: "work", label: "Karya" },
   { id: "process", label: "Proses" },
   { id: "pricing", label: "Harga" },
+  { id: "faq", label: "FAQ" },
 ];
 
 export default function Navbar() {

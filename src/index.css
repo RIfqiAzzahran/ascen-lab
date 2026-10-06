@@ -547,6 +547,98 @@ body {
   }
 }
 
+/* FAQ: akordeon — tinggi panel dianimasikan lewat grid-template-rows */
+.faq-item {
+  transition: background 0.25s;
+}
+
+.faq-item .faq-title {
+  color: var(--text);
+  transition: color 0.25s;
+}
+
+.faq-item:hover,
+.faq-item.is-open {
+  background: var(--surface-hover);
+}
+
+.faq-question:hover .faq-title,
+.faq-question:focus-visible .faq-title,
+.faq-item.is-open .faq-title {
+  color: var(--accent);
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* Ikon plus yang berubah jadi minus saat terbuka */
+.faq-icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: border-color 0.25s, transform 0.3s ease;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 1px;
+  background: var(--text-muted);
+  translate: -50% -50%;
+  transition: transform 0.3s ease, background 0.25s;
+}
+
+.faq-icon::after {
+  transform: rotate(90deg);
+}
+
+.faq-question:hover .faq-icon {
+  border-color: var(--accent);
+}
+
+.faq-item.is-open .faq-icon {
+  border-color: var(--accent);
+  transform: rotate(180deg);
+}
+
+.faq-item.is-open .faq-icon::before,
+.faq-item.is-open .faq-icon::after {
+  background: var(--accent);
+}
+
+.faq-item.is-open .faq-icon::after {
+  transform: rotate(0deg);
+}
+
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faq-item.is-open .faq-panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-panel > div {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.faq-item.is-open .faq-panel > div {
+  opacity: 1;
+  transition-delay: 0.08s;
+}
+
 /* Kontak: link email & WhatsApp */
 .contact-link {
   color: var(--text-muted);
