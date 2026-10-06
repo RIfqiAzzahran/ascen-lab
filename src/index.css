@@ -178,6 +178,11 @@ body {
   color: var(--text);
 }
 
+.nav-link.is-active {
+  color: var(--text);
+}
+
+.nav-link.is-active::after,
 .nav-link:hover::after,
 .nav-link:focus-visible::after,
 .footer-link:hover::after,
@@ -637,6 +642,361 @@ body {
 .faq-item.is-open .faq-panel > div {
   opacity: 1;
   transition-delay: 0.08s;
+}
+
+/* Navbar: tombol menu & panel menu untuk HP */
+.nav-menu-button {
+  display: none;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.burger {
+  position: relative;
+  width: 14px;
+  height: 10px;
+}
+
+.burger > span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.burger > span:nth-child(1) { top: 1px; }
+.burger > span:nth-child(2) { top: 7.5px; }
+
+.burger.is-open > span:nth-child(1) {
+  top: 4.25px;
+  transform: rotate(45deg);
+}
+
+.burger.is-open > span:nth-child(2) {
+  top: 4.25px;
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+  padding: 0.75rem clamp(1rem, 4vw, 2rem) 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-hover);
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -8px;
+  transition: opacity 0.25s ease, translate 0.25s ease, visibility 0.25s;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+
+.mobile-menu li {
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 15px 2px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  text-align: left;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.mobile-link:hover,
+.mobile-link:focus-visible,
+.mobile-link.is-active {
+  color: var(--accent);
+  padding-left: 6px;
+}
+
+@media (max-width: 720px) {
+  .nav-menu-button {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-cta {
+    display: none;
+  }
+}
+
+/* Tombol melayang: WhatsApp & kembali ke atas */
+.floating-actions {
+  position: fixed;
+  right: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s,
+    border-color 0.2s, color 0.2s;
+}
+
+.fab-top {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.fab-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.fab-top:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.fab-whatsapp {
+  gap: 0;
+  height: 52px;
+  min-width: 52px;
+  padding: 0 14px;
+  background: #25d366;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 10px 24px -10px rgba(37, 211, 102, 0.7);
+}
+
+/* Label melebar dari ikon saat dihover (desktop) */
+.fab-label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  transition: max-width 0.35s ease, margin 0.35s ease;
+}
+
+.fab-whatsapp:hover,
+.fab-whatsapp:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -10px rgba(37, 211, 102, 0.8);
+}
+
+.fab-whatsapp:hover .fab-label,
+.fab-whatsapp:focus-visible .fab-label {
+  max-width: 160px;
+  margin-right: 10px;
+}
+
+/* Tim: kartu anggota */
+.team-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.team-card .team-name {
+  color: var(--text);
+  transition: color 0.25s;
+}
+
+.team-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.team-card:hover .team-name {
+  color: var(--accent);
+}
+
+.team-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Karya: tombol & dialog studi kasus */
+.case-trigger {
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.case-trigger:hover {
+  opacity: 0.75;
+}
+
+.case-dialog {
+  width: min(760px, calc(100% - 2rem));
+  max-height: calc(100dvh - 3rem);
+  margin: auto;
+  padding: 0;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+.case-dialog[open] {
+  animation: dialog-in 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.case-dialog::backdrop {
+  background: rgba(8, 9, 10, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.case-body {
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+}
+
+.case-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.case-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  margin: 1.5rem 0 2rem;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.case-meta > div {
+  padding: 0.9rem 1rem;
+  background: var(--bg);
+}
+
+.case-meta dt {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.case-meta dd {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.case-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 2rem;
+}
+
+.case-results > div {
+  padding: 1.1rem;
+  background: var(--accent-soft);
+  border-radius: 12px;
 }
 
 /* Kontak: link email & WhatsApp */

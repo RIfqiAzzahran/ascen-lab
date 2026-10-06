@@ -9,12 +9,60 @@
       name="description"
       content="ASCEN LABS adalah studio produk digital di Makassar. Kami membangun aplikasi web, API, dan antarmuka — dari sketsa awal sampai rilis ke produksi."
     />
+    <!-- Domain di tag-tag berikut diisi saat build — atur SITE_URL di vite.config.js -->
+    <link rel="canonical" href="%SITE_URL%/" />
+
+    <!-- Pratinjau saat link dibagikan (WhatsApp, Instagram, LinkedIn, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ASCEN LABS" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:url" content="%SITE_URL%/" />
     <meta property="og:title" content="ASCEN LABS — Digital Product Studio" />
     <meta
       property="og:description"
       content="Studio produk digital di Makassar. Web, API, dan desain antarmuka."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ASCEN LABS — Kami bangun produk digital" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ASCEN LABS — Digital Product Studio" />
+    <meta
+      name="twitter:description"
+      content="Studio produk digital di Makassar. Web, API, dan desain antarmuka."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+
+    <!-- Data terstruktur untuk hasil pencarian lokal Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "ASCEN LABS",
+        "description": "Studio produk digital di Makassar yang membangun aplikasi web, API, dan antarmuka dari sketsa awal sampai rilis ke produksi.",
+        "url": "%SITE_URL%/",
+        "image": "%SITE_URL%/og-image.png",
+        "email": "ascen.labs@gmail.com",
+        "telephone": "+6282196166720",
+        "priceRange": "Rp2.000.000+",
+        "foundingDate": "2023",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Makassar",
+          "addressRegion": "Sulawesi Selatan",
+          "addressCountry": "ID"
+        },
+        "areaServed": { "@type": "Country", "name": "Indonesia" },
+        "knowsAbout": [
+          "Pembuatan website",
+          "Web application",
+          "Landing page",
+          "Backend & API",
+          "UI/UX design"
+        ]
+      }
+    </script>
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230e1013'/%3E%3Cpath d='M8 21L16 10L24 21' stroke='%237c9eff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"

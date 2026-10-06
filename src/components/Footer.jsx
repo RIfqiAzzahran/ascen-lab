@@ -22,26 +22,36 @@ export default function Footer() {
 
         <div style={{ display: "flex", gap: "1.5rem" }}>
           {[
-            { href: `https://${contact.github}`, label: "GitHub", external: true },
-            { href: `https://${contact.linkedin}`, label: "LinkedIn", external: true },
+            contact.github && {
+              href: `https://${contact.github}`,
+              label: "GitHub",
+              external: true,
+            },
+            contact.linkedin && {
+              href: `https://${contact.linkedin}`,
+              label: "LinkedIn",
+              external: true,
+            },
             { href: `mailto:${contact.email}`, label: "Email" },
             {
               href: `https://wa.me/${contact.whatsapp}`,
               label: "WhatsApp",
               external: true,
             },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              className="footer-link"
-              style={{ fontSize: "12px", textDecoration: "none" }}
-            >
-              {link.label}
-            </a>
-          ))}
+          ]
+            .filter(Boolean)
+            .map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className="footer-link"
+                style={{ fontSize: "12px", textDecoration: "none" }}
+              >
+                {link.label}
+              </a>
+            ))}
         </div>
 
         <p

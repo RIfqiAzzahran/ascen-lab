@@ -14,6 +14,8 @@ const LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -22,9 +24,45 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Section aktif = section yang sedang melewati garis tengah layar.
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+
+    document.querySelectorAll("main section[id]").forEach((el) => {
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  // Menu HP: tutup dengan Escape, atau otomatis saat layar dilebarkan.
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    const onResize = () => window.innerWidth > 720 && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [menuOpen]);
+
   const scrollTo = (id) => {
+    setMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const solid = scrolled || menuOpen;
 
   return (
     <nav
@@ -34,12 +72,12 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        background: scrolled ? colors.navBg : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: `1px solid ${scrolled ? colors.border : "transparent"}`,
+        background: solid ? colors.navBg : "transparent",
+        backdropFilter: solid ? "blur(12px)" : "none",
+        WebkitBackdropFilter: solid ? "blur(12px)" : "none",
+        borderBottom: `1px solid ${solid ? colors.border : "transparent"}`,
         transition: "background 0.3s, border-color 0.3s",
-        padding: "0 2rem",
+        padding: "0 clamp(1rem, 4vw, 2rem)",
         height: "64px",
         display: "flex",
         alignItems: "center",
@@ -75,7 +113,8 @@ export default function Navbar() {
             <li key={link.id}>
               <button
                 onClick={() => scrollTo(link.id)}
-                className="nav-link"
+                className={active === link.id ? "nav-link is-active" : "nav-link"}
+                aria-current={active === link.id ? "true" : undefined}
                 style={{
                   background: "none",
                   border: "none",
@@ -95,6 +134,7 @@ export default function Navbar() {
 
         <button
           onClick={() => scrollTo("contact")}
+          className="nav-cta"
           style={{
             fontFamily: mono,
             fontSize: "11px",
@@ -112,6 +152,64 @@ export default function Navbar() {
           onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
         >
           MULAI PROYEK
+        </button>
+
+        <button
+          className="nav-menu-button"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? "Tutup menu" : "Buka menu"}
+        >
+          <span className={menuOpen ? "burger is-open" : "burger"} aria-hidden="true">
+            <span />
+            <span />
+          </span>
+        </button>
+      </div>
+
+      {/* Menu HP — panel di bawah navbar */}
+      <div
+        id="mobile-menu"
+        className={menuOpen ? "mobile-menu is-open" : "mobile-menu"}
+        inert={menuOpen ? undefined : ""}
+      >
+        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          {LINKS.map((link, i) => (
+            <li key={link.id} style={{ "--i": i }}>
+              <button
+                onClick={() => scrollTo(link.id)}
+                className={
+                  active === link.id ? "mobile-link is-active" : "mobile-link"
+                }
+                aria-current={active === link.id ? "true" : undefined}
+              >
+                <span style={{ fontFamily: mono, fontSize: "11px", color: colors.textDim }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {link.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={() => scrollTo("contact")}
+          style={{
+            width: "100%",
+            marginTop: "1rem",
+            fontFamily: mono,
+            fontSize: "12px",
+            letterSpacing: "0.08em",
+            padding: "13px 14px",
+            background: colors.text,
+            color: colors.bg,
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: 500,
+          }}
+        >
+          MULAI PROYEK →
         </button>
       </div>
     </nav>

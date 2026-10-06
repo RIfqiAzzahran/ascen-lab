@@ -9,6 +9,7 @@ import Pricing from "./components/Pricing";
 import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import FloatingActions from "./components/FloatingActions";
 import { colors } from "./theme";
 import useReveal from "./hooks/useReveal";
 
@@ -29,23 +30,26 @@ export default function App() {
   return (
     <div style={{ background: colors.bg, minHeight: "100vh" }}>
       <Navbar />
-      <Hero />
-      <About />
-      {divider}
-      <Services />
-      {divider}
-      <Work />
-      {divider}
-      <Testimonials />
-      {divider}
-      <Process />
-      {divider}
-      <Pricing />
-      {divider}
-      <Faq />
-      {divider}
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        {divider}
+        <Services />
+        {divider}
+        <Work />
+        {divider}
+        <Testimonials />
+        {divider}
+        <Process />
+        {divider}
+        <Pricing />
+        {divider}
+        <Faq />
+        {divider}
+        <Contact />
+      </main>
       <Footer />
+      <FloatingActions />
     </div>
   );
 }

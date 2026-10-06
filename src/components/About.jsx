@@ -1,4 +1,4 @@
-import { about } from "../data/siteData";
+import { about, team } from "../data/siteData";
 import {
   colors,
   mono,
@@ -6,6 +6,16 @@ import {
   sectionLabel,
   sectionTitle,
 } from "../theme";
+
+const initialsOf = (name) =>
+  name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
+const LINK_LABELS = { github: "GitHub", linkedin: "LinkedIn" };
 
 export default function About() {
   return (
