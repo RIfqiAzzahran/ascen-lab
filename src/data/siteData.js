@@ -144,6 +144,49 @@ export const work = [
 
 ];
 
+/*
+ * ── KLIEN & TESTIMONI ────────────────────────────────────────────────────────
+ * logos  → file di public/Logo/. `scale` untuk menyamakan ukuran visual logo
+ *          yang punya ruang kosong besar di dalam filenya (default 1).
+ * testimonials → CONTOH SAJA. Ganti dengan kutipan asli dari klien
+ *          (dengan izin mereka) sebelum website dirilis.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+export const clients = {
+  logos: [
+    { name: "Geely Makassar", src: "Logo/Geely.png", scale: 1.1 },
+    { name: "Sobat Edukasi", src: "Logo/Sobat.png", scale: 1.5 },
+    { name: "HIMASTAT FMIPA Unhas", src: "Logo/Himastat.svg", scale: 1.1 },
+    { name: "Ataya Shop", src: "Logo/Ataya.svg", scale: 1.15 },
+  ],
+  testimonials: [
+    {
+      quote:
+        "Website baru membuat calon pembeli bisa melihat unit dan booking test drive langsung. Tim sales jadi lebih mudah menindaklanjuti leads.",
+      company: "Geely Makassar",
+      logo: "Logo/Geely.png",
+    },
+    {
+      quote:
+        "Sistem CAT-nya terasa seperti ujian sungguhan. Prosesnya rapi, demo rutin, dan setiap masukan kami cepat dikerjakan.",
+      company: "Sobat Edukasi",
+      logo: "Logo/Sobat.png",
+    },
+    {
+      quote:
+        "Informasi himpunan sekarang terpusat di satu tempat. Pengurus baru pun bisa memperbarui konten tanpa kesulitan.",
+      company: "HIMASTAT FMIPA Unhas",
+      logo: "Logo/Himastat.svg",
+    },
+    {
+      quote:
+        "Toko online kami lebih efisien dan mempermudah proses penjualan. Pengerjaannya tepat waktu.",
+      company: "Ataya Shop",
+      logo: "Logo/Ataya.svg",
+    },
+  ],
+};
+
 export const process = [
   {
     step: "01",

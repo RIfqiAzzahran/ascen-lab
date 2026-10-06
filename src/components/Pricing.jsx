@@ -18,7 +18,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" style={section} data-reveal-stagger>
-      <p style={sectionLabel}>05 / Harga</p>
+      <p style={sectionLabel}>06 / Harga</p>
       <h2 style={sectionTitle}>Investasi yang jelas sejak awal</h2>
       <p style={sectionIntro}>
         Tanpa biaya tersembunyi. Pilih paket landing page dengan harga pasti,

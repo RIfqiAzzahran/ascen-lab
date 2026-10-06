@@ -11,7 +11,7 @@ import {
 export default function Process() {
   return (
     <section id="process" style={section} data-reveal-stagger>
-      <p style={sectionLabel}>04 / Proses</p>
+      <p style={sectionLabel}>05 / Proses</p>
       <h2 style={sectionTitle}>Cara kami bekerja</h2>
       <p style={sectionIntro}>
         Empat tahap yang sama untuk setiap proyek — supaya Anda selalu tahu
