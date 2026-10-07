@@ -228,6 +228,25 @@ export const work = [
     image: "work/kupliq.webp",
     github: "",
     live: "",
+    caseStudy: {
+      // DATA CONTOH — ganti dengan cerita & angka proyek yang sebenarnya.
+      client: "Kupliq Cafe",
+      duration: "2 minggu",
+      scope: "Desain UI, frontend, menu digital",
+      challenge:
+        "Menu dan harga hanya tersedia di papan kasir dan unggahan Instagram yang cepat tenggelam. Pelanggan sering menanyakan hal yang sama lewat DM — menu terbaru, jam buka, dan lokasi — sementara pemilik kesulitan memperbarui menu saat harga atau stok berubah.",
+      solution: [
+        "Menu digital lengkap dengan foto, harga, dan kategori minuman & makanan.",
+        "QR code di meja yang langsung membuka menu dari HP pelanggan.",
+        "Info jam buka, lokasi Google Maps, dan tombol reservasi via WhatsApp.",
+        "Panel sederhana untuk mengubah harga dan menandai menu yang habis.",
+      ],
+      results: [
+        { value: "−60%", label: "pertanyaan berulang lewat DM" },
+        { value: "< 1 dtk", label: "menu terbuka setelah scan QR" },
+        { value: "5 menit", label: "untuk memperbarui menu & harga" },
+      ],
+    },
   },
   {
   name: "ATAYA SHOP",
@@ -259,6 +278,7 @@ export const clients = {
     { name: "Sobat Edukasi", src: "Logo/sobat.webp" },
     { name: "HIMASTAT FMIPA Unhas", src: "Logo/himastat.webp" },
     { name: "Ataya Shop", src: "Logo/ataya.webp" },
+    { name: "Kupliq Cafe", src: "Logo/kupliq.webp", scale: 1.25 },
   ],
   testimonials: [
     {
@@ -284,6 +304,14 @@ export const clients = {
         "Toko online kami lebih efisien dan mempermudah proses penjualan. Pengerjaannya tepat waktu.",
       company: "Ataya Shop",
       logo: "Logo/ataya.webp",
+    },
+    {
+      quote:
+        "Pelanggan tinggal scan QR di meja untuk lihat menu, dan kami bisa ganti harga sendiri kapan saja. DM yang tanya menu jadi jauh berkurang.",
+      name: "Nama Klien",
+      role: "Owner",
+      company: "Kupliq Cafe",
+      logo: "Logo/kupliq.webp",
     },
   ],
 };
