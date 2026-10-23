@@ -272,6 +272,17 @@ export const work = [
     github: "",
     live: "https://play.google.com/store/apps/details?id=com.rahabox.mobile",
   },
+  {
+    name: "JATO",
+    category: "Android Application",
+    year: "2026",
+    description:
+      "Jato adalah aplikasi penyedia jasa tukang online yang didesain untuk memberikan kemudahan bagi pengguna dalam mencari dan memesan jasa tukang secara cepat dan efisien. Aplikasi ini menawarkan berbagai fitur seperti pencarian tukang berdasarkan kategori, lokasi, dan ulasan pengguna, serta sistem pemesanan yang mudah digunakan.",
+    tags: ["Flutter", "Firebase"],
+    image: "work/jato.webp",
+    github: "",
+    live: "",
+  },
 ];
 
 /*
@@ -323,6 +334,18 @@ export const clients = {
       role: "Owner",
       company: "Kupliq Cafe",
       logo: "Logo/kupliq.webp",
+    },
+    {
+      quote:
+        "Aplikasinya stabil dan pembayaran lewat Google Play berjalan lancar. Fitur koin dan referral membantu kami menjaga pengguna tetap aktif.",
+      company: "PT Pusat Karya Kreatif",
+      logo: "Logo/rahabox.webp",
+    },
+    {
+      quote:
+        "Pengguna sekarang bisa cari dan pesan tukang langsung dari aplikasi. Alurnya sederhana, dan tim cepat merespons setiap revisi.",
+      company: "JATO",
+      logo: "Logo/jato.webp",
     },
   ],
 };
