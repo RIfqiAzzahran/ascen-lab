@@ -190,8 +190,8 @@ export const work = [
       ],
     },
   },
-  { 
-  name: "HIMASTAT (Himpunan Mahasiswa Statistika)",
+  {
+    name: "HIMASTAT (Himpunan Mahasiswa Statistika)",
     category: "Web Application",
     year: "2025",
     description:
@@ -214,16 +214,18 @@ export const work = [
       ],
       results: [
         { value: "1 tempat", label: "untuk semua informasi himpunan" },
-        { value: "0", label: "ketergantungan ke developer untuk update konten" },
+        {
+          value: "0",
+          label: "ketergantungan ke developer untuk update konten",
+        },
       ],
     },
   },
   {
-  name: "Kupliq Cafe",
+    name: "Kupliq Cafe",
     category: "Web Application",
     year: "2025",
-    description:
-      "Website untuk menampilkan menu dan layanan kafe Kupliq.",
+    description: "Website untuk menampilkan menu dan layanan kafe Kupliq.",
     tags: ["React", "Go", "PostgreSQL"],
     image: "work/kupliq.webp",
     github: "",
@@ -249,7 +251,7 @@ export const work = [
     },
   },
   {
-  name: "ATAYA SHOP",
+    name: "ATAYA SHOP",
     category: "Web Application",
     year: "2025",
     description:
@@ -258,10 +260,18 @@ export const work = [
     image: "work/ataya.webp",
     github: "",
     live: "",
-  }
-
-
-
+  },
+  {
+    name: "RAHABOX",
+    category: "Android Application",
+    year: "2026",
+    description:
+      "Aplikasi streaming drama pendek dengan pemutar video per episode, langganan VIP, sistem Koin Emas dan Perak, program referral, serta notifikasi film terbaru. Terintegrasi dengan pembayaran Google Play dan iklan AdMob.",
+    tags: ["React Native", "Expo", "Typescript", "Nativewind", "Firebase"],
+    image: "work/Rahabox.webp",
+    github: "",
+    live: "https://play.google.com/store/apps/details?id=com.rahabox.mobile",
+  },
 ];
 
 /*
@@ -279,6 +289,7 @@ export const clients = {
     { name: "HIMASTAT FMIPA Unhas", src: "Logo/himastat.webp" },
     { name: "Ataya Shop", src: "Logo/ataya.webp" },
     { name: "Kupliq Cafe", src: "Logo/kupliq.webp", scale: 1.25 },
+    { name: "PT Pusat Karya Kreatif", src: "Logo/rahabox.webp" },
   ],
   testimonials: [
     {
@@ -347,10 +358,17 @@ export const pricing = {
   trust: {
     value: "10+",
     label: "perusahaan & organisasi",
-    headline: "Dipercaya lebih dari 10 perusahaan untuk membangun wajah digitalnya.",
+    headline:
+      "Dipercaya lebih dari 10 perusahaan untuk membangun wajah digitalnya.",
     description:
       "Dari dealer otomotif, kafe, toko online, sampai organisasi kampus mereka memilih kami karena hasilnya rapi, tepat waktu, dan bisa langsung dipakai untuk menghasilkan.",
-    clients: ["Geely Makassar", "Sobat Edukasi", "HIMASTAT", "Kupliq Cafe", "Ataya Shop"],
+    clients: [
+      "Geely Makassar",
+      "Sobat Edukasi",
+      "HIMASTAT",
+      "Kupliq Cafe",
+      "Ataya Shop",
+    ],
   },
   plans: [
     {
@@ -440,6 +458,9 @@ export const contact = {
   email: "ascen.labs@gmail.com",
   whatsapp: "6282196166720",
   whatsappLabel: "+62 821 9616 6720",
+  // Contact person kedua — hanya tampil di daftar link section Kontak.
+  whatsapp2: "628134065567",
+  whatsapp2Label: "+62 813 4065 567",
   // Tanpa "https://", mis. "github.com/ascenlabs". Kosong → link disembunyikan.
   github: "",
   linkedin: "",

@@ -16,7 +16,14 @@ const LINKS = [
     icon: "✆",
     external: true,
   },
-];
+  contact.whatsapp2 && {
+    key: "whatsapp2",
+    href: `https://wa.me/${contact.whatsapp2}`,
+    label: `${contact.whatsapp2Label} (WhatsApp)`,
+    icon: "✆",
+    external: true,
+  },
+].filter(Boolean);
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
